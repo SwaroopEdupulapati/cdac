@@ -1,0 +1,27 @@
+package Assignment1;
+
+import java.util.Scanner;
+
+public class AreaOfCircle {
+	public static void main(String[]args){
+        System.out.print("enter the radius of the circle");
+        Scanner sc =new Scanner(System.in);
+        int radius=sc.nextInt();
+        double d=ca(radius);
+        double d1=cp(radius);
+        System.out.println(d+" "+d1);
+        sc.close();
+        
+    }
+    public static double ca (int radius){
+        double area=Math.PI*radius*radius;
+        return area;
+        //System.out.println("area of the circle"+" "+area);
+        
+    }
+    public static double cp(int radius){
+	    double circum =2*Math.PI*radius;
+	    return circum;
+        //System.out.println("the circumference of the circle is :"+" "+circum);
+    }
+}

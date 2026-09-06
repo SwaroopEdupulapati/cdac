@@ -1,0 +1,23 @@
+package package2;
+
+import package1.Parent;
+
+public class OtherPackage {
+
+    public static void main(String[] args) {
+
+        Parent obj = new Parent();
+
+        // Private: NOT accessible
+        // System.out.println(obj.privateVar); // ERROR
+
+        // Default: NOT accessible
+        // System.out.println(obj.defaultVar); // ERROR
+
+        // Protected: NOT accessible through Parent object
+        // System.out.println(obj.protectedVar); // ERROR
+
+        // Public: accessible
+        System.out.println("Public: " + obj.publicVar);
+    }
+}

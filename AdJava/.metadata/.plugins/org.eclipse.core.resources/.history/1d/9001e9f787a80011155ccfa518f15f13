@@ -1,0 +1,21 @@
+package package1;
+
+public class SamePackage {
+
+    public static void main(String[] args) {
+
+        Parent obj = new Parent();
+
+        // Private: NOT accessible
+        // System.out.println(obj.privateVar); // ERROR
+
+        // Default: accessible in same package
+        System.out.println("Default: " + obj.defaultVar);
+
+        // Protected: accessible in same package
+        System.out.println("Protected: " + obj.protectedVar);
+
+        // Public: accessible everywhere
+        System.out.println("Public: " + obj.publicVar);
+    }
+}

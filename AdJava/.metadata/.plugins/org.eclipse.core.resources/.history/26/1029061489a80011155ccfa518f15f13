@@ -1,0 +1,29 @@
+package package1;
+
+public class Parent {
+
+    private int privateVar = 10;
+    int defaultVar = 20;
+    protected int protectedVar = 30;
+    public int publicVar = 40;
+
+    public void display() {
+        System.out.println("Private: " + privateVar);
+        System.out.println("Default: " + defaultVar);
+        System.out.println("Protected: " + protectedVar);
+        System.out.println("Public: " + publicVar);
+    }
+
+    public static void main(String[] args) {
+
+        Parent obj = new Parent();
+
+        // All are accessible inside the same class
+        System.out.println("Private: " + obj.privateVar);
+        System.out.println("Default: " + obj.defaultVar);
+        System.out.println("Protected: " + obj.protectedVar);
+        System.out.println("Public: " + obj.publicVar);
+
+        obj.display();
+    }
+}

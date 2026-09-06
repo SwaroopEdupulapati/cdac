@@ -1,0 +1,14 @@
+package assignment1;
+
+import java.util.Scanner;
+
+public class TemperatureConversion {
+	public static void main(String[]args){
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter Celsius = ");
+        int p=sc.nextInt(); 
+        double heat=(p*1.86)+32;
+        System.out.println("Fahrenheit = "+heat);
+        sc.close();
+    }
+}

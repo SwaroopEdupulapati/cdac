@@ -1,0 +1,41 @@
+package assignment5.q1;
+
+class Employee {
+	static String companyName="CDAC";
+	int empId;
+	String empName;
+	double salary;
+	Employee(int empId,String empName,double salary){
+		this.empId=empId;
+		this.empName=empName;
+		this.salary=salary;
+	}
+}
+public class Manager extends Employee{
+	String department;
+	int teamSize;
+	Manager(String department,int teamSize,int empId,String empName,double salary){
+		super(empId,empName,salary);
+		this.department=department;
+		this.teamSize=teamSize;		
+	}
+	void diaplay() {
+		System.out.println("companyName = "+companyName);
+		System.out.println("empId = "+empId);
+		System.out.println("empName = "+empName);
+		System.out.println("salary = "+salary);
+		System.out.println("department = "+department);
+		System.out.println("teamSize = "+teamSize);
+	}
+	public static void main(String[] args) {
+		System.out.println("MAnager 1 details");
+		Manager m1=new Manager("AC",5,101,"Swaroop",30000);
+		m1.diaplay();
+		System.out.println("MAnager 2 details");
+		Manager m2=new Manager("AI",5,102,"Manoj",50000);
+		m2.diaplay();
+		System.out.println("MAnager 3 details");
+		Manager m3=new Manager("Bda",5,103,"Ajay",100000);
+		m3.diaplay();
+	}
+}

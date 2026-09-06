@@ -1,0 +1,27 @@
+package package2;
+
+import package1.Parent;
+
+public class Child extends Parent {
+
+    public void display() {
+
+        // Private: NOT accessible
+        // System.out.println(privateVar); // ERROR
+
+        // Default: NOT accessible from another package
+        // System.out.println(defaultVar); // ERROR
+
+        // Protected: accessible because Child extends Parent
+        System.out.println("Protected: " + protectedVar);
+
+        // Public: accessible everywhere
+        System.out.println("Public: " + publicVar);
+    }
+
+    public static void main(String[] args) {
+
+        Child obj = new Child();
+        obj.display();
+    }
+}

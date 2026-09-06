@@ -1,0 +1,59 @@
+package assignment6.q4;
+
+import java.util.Scanner;
+
+public abstract class BankAccount {
+    protected long accountNumber;
+    protected String customerName;
+    protected double balance;
+
+    BankAccount(long accountNumber, String customerName, double balance) {
+        this.accountNumber = accountNumber;
+        this.customerName = customerName;
+        this.balance = balance;
+    }
+
+    public abstract double calculateWithdrawalLimit();
+
+    public double deposit(double amount) {
+        balance += amount;
+        System.out.println(amount + " deposited successfully");
+        return balance;
+    }
+
+    public void displayAccountDetails() {
+        System.out.println("Account number: " + accountNumber);
+        System.out.println("Customer name: " + customerName);
+        System.out.println("Balance: " + balance);
+    }
+
+    static class SavingsAccount extends BankAccount {
+        SavingsAccount(long number, String name, double balance) { super(number, name, balance); }
+        @Override public double calculateWithdrawalLimit() { return balance * 0.95; }
+    }
+
+    static class CurrentAccount extends BankAccount {
+        private final double overdraftFacility;
+        CurrentAccount(long number, String name, double balance, double overdraft) {
+            super(number, name, balance);
+            overdraftFacility = overdraft;
+        }
+        @Override public double calculateWithdrawalLimit() { return balance + overdraftFacility; }
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter savings opening balance: ");
+        BankAccount savings = new SavingsAccount(2304586, "Keerthan", scanner.nextDouble());
+        System.out.print("Enter savings deposit: ");
+        savings.deposit(scanner.nextDouble());
+        savings.displayAccountDetails();
+        System.out.println("Savings withdrawal limit: " + savings.calculateWithdrawalLimit());
+
+        System.out.print("Enter current opening balance: ");
+        BankAccount current = new CurrentAccount(2365401, "Keerthan", scanner.nextDouble(), 10000);
+        current.displayAccountDetails();
+        System.out.println("Current withdrawal limit: " + current.calculateWithdrawalLimit());
+        scanner.close();
+    }
+}

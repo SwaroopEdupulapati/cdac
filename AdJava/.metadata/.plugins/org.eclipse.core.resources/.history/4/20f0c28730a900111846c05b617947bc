@@ -1,0 +1,22 @@
+package Assignment1;
+
+import java.util.Scanner;
+
+public class LargestofTwoNumbers {
+	public static void main(String[]args){
+        Scanner sc = new Scanner(System.in);
+
+        int p=sc.nextInt();
+        int b=sc.nextInt();
+        if(p>b){
+            System.out.println(p+" "+ "is greater than"+b);
+        }
+        else if(p==b){
+            System.out.println("both are same");
+        }
+        else{
+            System.out.println(b+" "+ "is greater than"+p);
+        }
+        sc.close();
+    }
+}

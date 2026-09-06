@@ -1,0 +1,17 @@
+package package2;
+
+import java.util.Scanner;
+
+public class AirthematicOperations {
+	public static void main(String[]args){
+	    Scanner sc = new Scanner(System.in);
+	    int a=sc.nextInt();
+	    int b=sc.nextInt();
+	    System.out.println("Addition of "+a+" + "+b+" = "+(a+b));
+	    System.out.println("substraction of "+a +" - "+b+" = "+(a-b));
+	    System.out.println("multiplicion of "+a+" * "+b+" = "+(a*b));
+	    System.out.println("division of "+a+" / "+b+" = "+((double)a/b));
+	    sc.close();
+	}
+
+}

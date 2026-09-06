@@ -1,0 +1,23 @@
+package Assignment2;
+
+import java.util.Scanner;
+
+public class EmployeeSalaryCalculation {
+	public static int calculateSalary(int salary) {
+		int finalsal;
+		if(salary>=50000) {
+			 finalsal=salary*120/100;
+		}
+		else {
+			finalsal=salary*110/100;
+		}
+		return finalsal;
+	}
+	
+		public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter Salary = ");
+		int salary=sc.nextInt();
+		System.out.println(calculateSalary(salary));
+	}
+}

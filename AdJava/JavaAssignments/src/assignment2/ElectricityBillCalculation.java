@@ -1,0 +1,29 @@
+package assignment2;
+
+import java.util.Scanner;
+
+public class ElectricityBillCalculation {
+	public static double elec(int units){
+        double d=0;
+        if(units>=0&&units<=100){
+            d=2*units;
+        }
+         else if(units>100&&units<=200){
+            d=3*units;
+        }
+         else if(units>200&&units<=300){
+            d=5*units;
+        }
+         else if(units>300){
+            d=7*units;
+        }
+        return d;
+    }
+    public static void main(String[]args){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("enter number of units");
+        int n=sc.nextInt();
+        System.out.println(elec(n));
+        sc.close();
+    }
+}

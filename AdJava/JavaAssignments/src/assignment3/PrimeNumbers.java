@@ -1,0 +1,30 @@
+package assignment3;
+import java.util.Scanner;
+public class PrimeNumbers {
+   public static void main(String[]args){
+    Scanner sc = new Scanner(System.in);
+    int n=sc.nextInt();
+    p(n);
+    sc.close();
+   } 
+   public static void p(int n){
+    if (n<=1){
+        System.out.println("Not a Prime");
+    }
+    else{
+        boolean p=true;
+        for(int i=2;i<=n/2;i++){
+            if(n%i==0){
+                p=false;
+                break;
+            }
+        }
+        if(p){
+            System.out.println("prime");
+        }
+        else{
+            System.out.println("Not a prime");
+        }
+    }
+}
+}

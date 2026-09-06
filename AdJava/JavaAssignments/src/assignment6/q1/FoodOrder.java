@@ -1,0 +1,30 @@
+package assignment6.q1;
+
+import java.util.Scanner;
+
+public class FoodOrder {
+    public double calculateBill(double foodPrice) { 
+    		return foodPrice;
+    	}
+    public double calculateBill(double foodPrice, int quantity){ 
+    		return foodPrice * quantity; 
+    	}
+    public double calculateBill(double foodPrice, int quantity, double deliveryCharge) {
+        return foodPrice * quantity + deliveryCharge;
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        FoodOrder order = new FoodOrder();
+        System.out.print("Enter food price: ");
+        double price = scanner.nextDouble();
+        System.out.print("Enter quantity: ");
+        int quantity = scanner.nextInt();
+        System.out.print("Enter delivery charge: ");
+        double delivery = scanner.nextDouble();
+        System.out.println("Single-item bill: " + order.calculateBill(price));
+        System.out.println("Quantity bill: " + order.calculateBill(price, quantity));
+        System.out.println("Final bill: " + order.calculateBill(price, quantity, delivery));
+        scanner.close();
+    }
+}
