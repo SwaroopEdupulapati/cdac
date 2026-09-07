@@ -22,3 +22,6 @@
 {"logTime": "0906/180950", "session": "START"}
 {"logTime": "0906/180950", "level": "INFO", "location": "chrome\\browser\\sessions\\session_service_log.cc:326 EdgeLogSessionServiceMessage", "message": "SessionServiceEvent: kStart - {\r\n   \"crashed\": false,\r\n   \"type\": 0\r\n}\r\n"}
 {"logTime": "0906/182421", "session": "END"}
+{"logTime": "0907/135436", "session": "START"}
+{"logTime": "0907/135436", "level": "INFO", "location": "chrome\\browser\\sessions\\session_service_log.cc:326 EdgeLogSessionServiceMessage", "message": "SessionServiceEvent: kStart - {\r\n   \"crashed\": false,\r\n   \"type\": 0\r\n}\r\n"}
+{"logTime": "0907/160526", "session": "END"}

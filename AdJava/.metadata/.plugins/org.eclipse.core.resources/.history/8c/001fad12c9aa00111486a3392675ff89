@@ -1,0 +1,128 @@
+package assignment7.q1;
+import java.util.ArrayList;
+import java.util.Scanner;
+import assignment7.Book;
+
+ class BookManagementArrayList {
+	public static void main(String[]args) {
+		Scanner sc=new Scanner(System.in);
+		ArrayList<Book>al=new ArrayList<>();
+		while(true) {
+			 System.out.println(""" 
+			 		
+			 	1. Add Book
+					2. Display All Books
+					3. Search Book by ID
+					4. Update Book
+					5. Delete Book
+					6. Exit
+					Enter the choise = 
+			            """);
+			 int ch=sc.nextInt();
+			 switch(ch) {
+				 case 1:{
+					 System.out.println("add");
+					 System.out.print("Enter id = ");
+					 int id=sc.nextInt();
+					 System.out.print("Enter title = ");
+					 String title=sc.next();
+					 System.out.print("Enter author = ");
+					 String author=sc.next();
+					 System.out.print("Enter price = ");
+					 int price=sc.nextInt();
+					 Book b=new Book(id,title,author,price);
+					 al.add(b);
+					 break;
+				 }
+				 case 2:{
+					 System.out.println("display all");
+					 int n=al.size();
+					 if(n>0) {
+						 for(Book b : al) {
+								System.out.println("Book ID = "+b.id);
+								System.out.println("Book Title = "+b.title);
+								System.out.println("Book Author = "+b.author);
+								System.out.println("Book Price = "+b.price);
+								System.out.println();
+							}
+					 }
+					 else {
+						 System.out.println("No data found");
+					 }
+					 break;
+				 }
+				 case 3:{
+					 System.out.println("Search Book by ID");
+					 System.out.println("Enter id to search = ");
+					 int id=sc.nextInt();
+					 int c=0;
+					 for(Book b : al) {
+						 if(b.id==id) {
+							System.out.println(b.id);
+							System.out.println(b.title);
+							System.out.println(b.author);
+							System.out.println(b.price);
+							c++;
+						 }
+					 }
+					 if(c==0)System.out.println("No Books found");
+					 break;
+				 }
+				 case 4:{
+					 System.out.println("Update Book");
+					 System.out.println("Enter id to update = ");
+					 int id=sc.nextInt();
+					 int l=al.size();
+					 int c=0;
+					 for(int i=0;i<l;i++) {
+						 Book b=al.get(i);
+						 //System.out.println(b);
+						 if(b.id==id) {
+							System.out.println("previous id "+b.id+" enter to update = ");
+							int nid=sc.nextInt();
+							System.out.println("previous title "+b.title+" enter to update = ");
+							String ntitle=sc.next();
+							System.out.println("previous author "+b.author+" enter to update = ");
+							String nauthor=sc.next();
+							System.out.println("previous price "+b.price+" enter to update = ");
+							int nprice=sc.nextInt();
+							Book nb=new Book(nid,ntitle,nauthor,nprice);
+							al.set(i,nb);
+							c++;
+							break;
+						 }
+					 }
+					 if(c==0)System.out.println("No Books found");
+					 break;
+				 }
+				 case 5:{
+					 System.out.println("Delete Book");
+					 System.out.println("Enter id to Delete = ");
+					 int id=sc.nextInt();
+					 int l=al.size();
+					 int c=0;
+					 for(int i=0;i<l;i++) {
+						 Book b=al.get(i);
+						 //System.out.println(b);
+						 if(b.id==id) {
+							al.remove(i);
+							System.out.println("Book removed\n");
+							c++;
+							break;
+						 }
+					 }if(c==0)System.out.println("No Books found");
+					 break;
+				 }
+				 case 6:{
+					 System.out.println("6. Exit");
+					 System.exit(0);
+				 }
+			 }
+			 //sc.close();
+			 
+		}
+		
+	}
+
+}
+

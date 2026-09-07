@@ -1,0 +1,14 @@
+package assignment7;
+
+public class Book {
+	int id;
+	String title;
+	String author;
+	int price;
+	Book(int i,String t,String a,int p){
+		id=i;
+		title=t;
+		author=a;
+		price=p;
+	}
+}

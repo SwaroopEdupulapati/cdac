@@ -1,0 +1,64 @@
+package assignment7.q3;
+
+import java.util.Scanner;
+import java.util.Stack;
+
+public class BrowserHistory {
+	public static void main(String[] args) {
+        Stack<String> s = new Stack<>();
+        Scanner sc=new Scanner(System.in);
+        while(true) {
+			 System.out.println(""" 
+			 		
+			 	1. Visit New Page
+					2. Go Back
+					3. View Current Page
+					4. Display History
+					5. Exit
+					Enter the choise = 
+			            """);
+			 int ch = 0;
+			 try {
+				 ch=sc.nextInt();
+			 }catch(Exception e) {
+				 System.out.println("Invalid Input");
+			 }
+			 switch(ch) {
+				 case 1:{
+					 System.out.println("Enter page Name = ");
+					 String page=sc.next();
+					 s.add(page);
+					 break;
+				 }
+				 case 2:{
+					 //System.out.print(false);
+					 s.pop();
+					 break;
+					 
+				 }
+				 case 3:{
+					 System.out.println(s.peek());
+					 break;
+				 }
+				 case 4:{
+					 if(s.size()>0) {
+						 for(String t:s) {
+							 System.out.println(t);
+						 }
+					 }else {
+						 System.out.println("no history");
+					 }
+					 break;
+				}
+				 case 5:{
+					 System.exit(0);
+				 }
+				 default:{
+					 System.out.println("Invalid input");
+				 }
+			 }
+			 
+			 
+        }
+	}
+}

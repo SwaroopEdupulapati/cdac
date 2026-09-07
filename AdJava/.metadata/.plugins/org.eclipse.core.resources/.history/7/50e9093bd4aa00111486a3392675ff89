@@ -1,0 +1,28 @@
+package assignment7.q3;
+
+import java.util.Scanner;
+import java.util.Stack;
+
+public class BrowserHistory {
+	public static void main(String[] args) {
+        Stack<String> s = new Stack<>();
+        Sacnner sc=new Scanner(System.in);
+        while(true) {
+			 System.out.println(""" 
+			 		
+			 	1. Visit New Page
+2. Go Back
+3. View Current Page
+4. Display History
+5. Exit
+					Enter the choise = 
+			            """);
+			 int ch = 0;
+			 try {
+				 ch=sc.nextInt();
+			 }catch(Exception e) {
+				 System.out.println("Invalid Input");
+			 }
+        }
+	}
+}
