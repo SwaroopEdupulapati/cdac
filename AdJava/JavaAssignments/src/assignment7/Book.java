@@ -12,6 +12,7 @@ public class Book {
 		price=p;
 	}
 	public void displayBook() {
+        System.out.println("-------------------------");
         System.out.println("Book ID : " + id);
         System.out.println("Title   : " + title);
         System.out.println("Author  : " + author);

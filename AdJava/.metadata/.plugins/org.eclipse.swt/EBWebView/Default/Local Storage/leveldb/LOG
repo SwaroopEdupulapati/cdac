@@ -1,3 +1,2 @@
-2026/09/07-19:24:37.220 44c0 Reusing MANIFEST D:\cdac\AdJava\.metadata\.plugins\org.eclipse.swt\EBWebView\Default\Local Storage\leveldb/MANIFEST-000001
-2026/09/07-19:24:37.264 44c0 Recovering log #3
-2026/09/07-19:24:37.267 44c0 Reusing old log D:\cdac\AdJava\.metadata\.plugins\org.eclipse.swt\EBWebView\Default\Local Storage\leveldb/000003.log 
+2026/09/08-09:25:16.392 17b4 Creating DB D:\DAC\cdac\AdJava\.metadata\.plugins\org.eclipse.swt\EBWebView\Default\Local Storage\leveldb since it was missing.
+2026/09/08-09:25:16.633 17b4 Reusing MANIFEST D:\DAC\cdac\AdJava\.metadata\.plugins\org.eclipse.swt\EBWebView\Default\Local Storage\leveldb/MANIFEST-000001

@@ -52,9 +52,11 @@ public class BookManagementHashMap {
 					 System.out.println("display all");
 					 int n=al.size();
 					 if(n>0) {
-						 for (HashMap.Entry<Integer, Book> entry : al.entrySet()) {
-	                            entry.getValue().displayBook();
-	                        }
+						 for(Integer k:al.keySet()) {
+							 System.out.println(k);
+							 Book b =al.get(k);
+							 b.displayBook();
+						 }
 					 }
 					 else {
 						 System.out.println("No data found");
