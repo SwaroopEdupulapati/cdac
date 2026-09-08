@@ -136,6 +136,7 @@ import assignment7.Book;
 				 case 6:{
 					 System.out.println("6. Exit");
 					 System.exit(0);
+					 sc.close();
 				 }
 				 
 			 }

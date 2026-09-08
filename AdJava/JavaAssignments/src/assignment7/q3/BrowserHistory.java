@@ -52,6 +52,7 @@ public class BrowserHistory {
 				}
 				 case 5:{
 					 System.exit(0);
+					 sc.close();
 				 }
 				 default:{
 					 System.out.println("Invalid input");
