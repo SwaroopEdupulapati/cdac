@@ -18,7 +18,6 @@ public class Main {
 		w.close();
 		sc.close();
 		FileReader fr=new FileReader("hi.txt");
-		System.out.println(fr.read());   
-		//Parade
+		System.out.println(fr.read());
 	}
 }
