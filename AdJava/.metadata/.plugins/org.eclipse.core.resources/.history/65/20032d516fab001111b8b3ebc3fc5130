@@ -1,0 +1,23 @@
+package assignment8.q1;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Scanner;
+
+public class Main {
+	public static void main(String[] args) throws IOException {
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter string to add = ");
+		String s=sc.nextLine();
+		
+		FileWriter w=new FileWriter("hi.txt");
+		for(int i=0;i<s.length();i++) {
+			System.out.println(s.charAt(i));
+			w.write(s.charAt(i)+"\n");
+		}
+		w.close();
+		sc.close();
+		FileReader fr=new FileReader("hi.txt");
+		System.out.println(fr);
+	}
+}
