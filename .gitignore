@@ -1,0 +1,43 @@
+# IDE and Editor
+.metadata/
+.classpath
+.project
+.settings/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Compiled files
+*.class
+*.jar
+*.war
+*.ear
+
+# Build outputs
+bin/
+build/
+dist/
+
+# Node
+node_modules/
+npm-debug.log
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+dist/
+build/
+
+# IDEs
+.vscode/
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# OS
+Thumbs.db
+.DS_Store
