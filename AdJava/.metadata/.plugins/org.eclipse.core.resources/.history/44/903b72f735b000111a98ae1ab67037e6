@@ -1,0 +1,21 @@
+package myjdbc;
+import java.sql.*;
+public class MyCrud {
+	public static void main(String[] args) throws SQLException {
+		Connection con = DriverManager.getConnection(
+				"jdbc:mysql://127.0.0.1:3306/studentdb",
+				"root",
+				"root"
+		);
+		Statement s=con.createStatement();
+		ResultSet res=s.executeQuery("select * from students");
+		while(res.next()) {
+			System.out.print(res.getInt(1));
+			System.out.print(res.getString(2));
+			System.out.print(res.getString(3));
+			System.out.print(res.getInt(4));
+			System.out.println();
+
+		}
+	}
+}

@@ -1,0 +1,111 @@
+package exam;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Scanner;
+
+class Book{
+	int id;
+	String name;
+	float price;
+	Book(int id,String name,	float price){
+		this.id=id;
+		this.name=name;
+		this.price=price;
+	}
+	void display() {
+		System.out.println(id+"\t"+name+"\t"+price);
+	}
+}
+public class q2 {
+	public static void main(String[] args) {
+		
+		Scanner sc=new Scanner(System.in);
+		ArrayList<Book> al=new ArrayList<>();
+		
+		while(true) {
+			System.out.println("1 Insert, \n 2 Search, \n 3 Update, \n 4 Delete, \n 5 Sort , \n 6 exit");
+			int ch=sc.nextInt();
+			switch(ch) {
+				case 1:{
+					//Book b=new Book(1,"hari",335);
+					int id=sc.nextInt();
+					String name=sc.next();
+					float price=sc.nextFloat();
+					Book b=new Book(id,name,price);
+					al.add(b);
+					break;
+					
+				}
+				case 2:{
+					int id=sc.nextInt();
+					int c=0;
+					for(Book b :al) {
+						if(b.id==id) {
+							b.display();
+							System.out.println("Book Found");
+							c++;
+						}
+					}
+					if(c==0) {
+						System.out.println("Book Not found");
+					}
+					break;
+				}
+				case 3:{
+					int id=sc.nextInt();
+					int c=0;
+					for(Book b :al) {
+						if(b.id==id) {
+							b.id=sc.nextInt();
+							b.name=sc.next();
+							b.price=sc.nextFloat();
+							System.out.println("Book updateed");
+							c++;
+						}
+					}
+					if(c==0) {
+						System.out.println("Book Not found");
+					}
+					break;
+				}
+				case 4 :{
+					int id=sc.nextInt();
+					int c=0;
+					for(Book b :al) {
+						if(b.id==id) {
+							al.remove(b);
+							System.out.println("Book removed");
+							c++;
+						}
+					}
+					if(c==0) {
+						System.out.println("Book Not found");
+					}
+					break;
+				}
+				case 5:{
+					Collections.sort(al,(b1,b2)->Float.compare(b1.price, b2.price));
+				    System.out.println("Books sorted by price:");
+
+				    for (Book b : al) {
+				        b.display();
+				    }
+
+				    break;
+				}
+			
+				case 6:{
+					System.exit(0);
+					break;
+				}
+				default:{
+					System.out.println("Invalid");
+				}
+			}
+			
+		}
+	}
+
+}

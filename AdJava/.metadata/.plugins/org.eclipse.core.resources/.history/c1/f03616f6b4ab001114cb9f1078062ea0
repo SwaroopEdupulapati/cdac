@@ -1,0 +1,44 @@
+package assignment7.q6;
+
+
+public class Account {
+	
+	long accNo;
+	String name;
+	double balance;
+	
+	Account(long accNo, String name, double balance) {
+		super();
+		this.accNo = accNo;
+		this.name = name;
+		this.balance = balance;
+	}
+
+	public void withdraw(double amount) {
+		try {
+			if(amount > 0) {
+				if(balance > amount) {
+					balance -= amount;
+					System.out.println(amount + " Withdrawed Successfully...");
+		
+				}
+				else if(balance < amount) {
+					throw new ArithmeticException("Insufficient Balance");
+				}
+			}
+			
+		}
+		catch(ArithmeticException e){
+			throw new ArithmeticException("Insufficient Balance");
+		}
+		finally {
+			System.out.println("Balance : " + balance);
+		}
+	}
+
+	public static void main(String[] args) {
+		Account a = new Account(123456789, "Keerthan", 50000);
+		a.withdraw(53000);
+	}
+
+}

@@ -1,0 +1,21 @@
+package javaCollections;
+
+import java.util.ArrayList;
+
+public class JavaArrayList {
+	public static void main(String[] args) {
+		ArrayList<Integer> a=new ArrayList<>();
+		a.add(10);
+		a.add(20);
+		a.add(30);
+		System.out.println(a);
+		a.add(1, 40);
+		System.out.println(a);
+		System.out.println(a.contains(30));
+		System.out.println(a.contains(50));
+		System.out.println(a.isEmpty());
+		System.out.println(a.remove(30));
+		a.clear();
+		System.out.println(a);
+	}
+}

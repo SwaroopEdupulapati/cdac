@@ -1,0 +1,9 @@
+package exam;
+
+import java.io.FileWriter;
+
+public class q4 {
+	public static void main(String[] args) {
+		FileWriter fw=new FileWriter("hi.txt");
+	}
+}

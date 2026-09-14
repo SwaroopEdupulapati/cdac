@@ -1,0 +1,287 @@
+package javaCollections;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Scanner;
+
+class Student {
+
+    int id;
+    String name;
+    String course;
+    double marks;
+
+    Student(int id, String name, String course, double marks) {
+        this.id = id;
+        this.name = name;
+        this.course = course;
+        this.marks = marks;
+    }
+
+    // Display student details
+    void display() {
+        System.out.println(
+                "ID: " + id +
+                ", Name: " + name +
+                ", Course: " + course +
+                ", Marks: " + marks
+        );
+    }
+}
+
+
+public class StudentCRUD {
+
+    public static void main(String[] args) {
+
+        ArrayList<Student> students = new ArrayList<>();
+
+        Scanner sc = new Scanner(System.in);
+
+        while (true) {
+
+            System.out.println("\n========== STUDENT MANAGEMENT ==========");
+            System.out.println("1. Add Student");
+            System.out.println("2. Display Students");
+            System.out.println("3. Search by ID");
+            System.out.println("4. Search by Name");
+            System.out.println("5. Update Student");
+            System.out.println("6. Delete Student");
+            System.out.println("7. Sort by Marks Ascending");
+            System.out.println("8. Sort by Marks Descending");
+            System.out.println("9. Exit");
+
+            System.out.print("Enter your choice: ");
+            int choice = sc.nextInt();
+
+            switch (choice) {
+
+                // CREATE
+                case 1:
+
+                    System.out.print("Enter ID: ");
+                    int id = sc.nextInt();
+
+                    sc.nextLine();
+
+                    System.out.print("Enter Name: ");
+                    String name = sc.nextLine();
+
+                    System.out.print("Enter Course: ");
+                    String course = sc.nextLine();
+
+                    System.out.print("Enter Marks: ");
+                    double marks = sc.nextDouble();
+
+                    Student s = new Student(id, name, course, marks);
+
+                    students.add(s);
+
+                    System.out.println("Student added successfully!");
+
+                    break;
+
+
+                // READ
+                case 2:
+
+                    if (students.isEmpty()) {
+
+                        System.out.println("No students found.");
+
+                    } else {
+
+                        System.out.println("\n----- Student List -----");
+
+                        for (Student student : students) {
+                            student.display();
+                        }
+                    }
+
+                    break;
+
+
+                // SEARCH BY ID
+                case 3:
+
+                    System.out.print("Enter ID to search: ");
+                    int searchId = sc.nextInt();
+
+                    boolean found = false;
+
+                    for (Student student : students) {
+
+                        if (student.id == searchId) {
+
+                            System.out.println("\nStudent Found:");
+                            student.display();
+
+                            found = true;
+                            break;
+                        }
+                    }
+
+                    if (!found) {
+                        System.out.println("Student not found.");
+                    }
+
+                    break;
+
+
+                // SEARCH BY NAME
+                case 4:
+
+                    sc.nextLine();
+
+                    System.out.print("Enter name to search: ");
+                    String searchName = sc.nextLine();
+
+                    boolean nameFound = false;
+
+                    for (Student student : students) {
+
+                        if (student.name.equalsIgnoreCase(searchName)) {
+
+                            System.out.println("\nStudent Found:");
+                            student.display();
+
+                            nameFound = true;
+                        }
+                    }
+
+                    if (!nameFound) {
+                        System.out.println("Student not found.");
+                    }
+
+                    break;
+
+
+                // UPDATE
+                case 5:
+
+                    System.out.print("Enter ID to update: ");
+                    int updateId = sc.nextInt();
+
+                    boolean updated = false;
+
+                    for (Student student : students) {
+
+                        if (student.id == updateId) {
+
+                            sc.nextLine();
+
+                            System.out.print("Enter new name: ");
+                            student.name = sc.nextLine();
+
+                            System.out.print("Enter new course: ");
+                            student.course = sc.nextLine();
+
+                            System.out.print("Enter new marks: ");
+                            student.marks = sc.nextDouble();
+
+                            System.out.println(
+                                    "Student updated successfully!"
+                            );
+
+                            updated = true;
+                            break;
+                        }
+                    }
+
+                    if (!updated) {
+                        System.out.println("Student not found.");
+                    }
+
+                    break;
+
+
+                // DELETE
+                case 6:
+
+                    System.out.print("Enter ID to delete: ");
+                    int deleteId = sc.nextInt();
+
+                    boolean deleted = false;
+
+                    for (int i = 0; i < students.size(); i++) {
+
+                        if (students.get(i).id == deleteId) {
+
+                            students.remove(i);
+
+                            System.out.println(
+                                    "Student deleted successfully!"
+                            );
+
+                            deleted = true;
+                            break;
+                        }
+                    }
+
+                    if (!deleted) {
+                        System.out.println("Student not found.");
+                    }
+
+                    break;
+
+
+                // SORT ASCENDING
+                case 7:
+
+                    Collections.sort(
+                            students,
+                            Comparator.comparingDouble(
+                                    student -> student.marks
+                            )
+                    );
+
+                    System.out.println(
+                            "\nSorted by Marks - Ascending:"
+                    );
+
+                    for (Student student : students) {
+                        student.display();
+                    }
+
+                    break;
+
+
+                // SORT DESCENDING
+                case 8:
+
+                    Collections.sort(
+                            students,
+                            Comparator.comparingDouble(
+                                    (Student student) -> student.marks
+                            ).reversed()
+                    );
+
+                    System.out.println(
+                            "\nSorted by Marks - Descending:"
+                    );
+
+                    for (Student student : students) {
+                        student.display();
+                    }
+
+                    break;
+
+
+                // EXIT
+                case 9:
+
+                    System.out.println("Program exited.");
+                    sc.close();
+                    return;
+
+
+                default:
+
+                    System.out.println(
+                            "Invalid choice! Please enter 1-9."
+                    );
+            }
+        }
+    }
+}

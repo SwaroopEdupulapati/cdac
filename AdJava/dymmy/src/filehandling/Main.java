@@ -1,0 +1,20 @@
+package filehandling;
+import java.io.FileWriter;
+import java.io.IOException;
+
+public class Main {
+    public static void main(String[] args) {
+        try {
+            FileWriter writer = new FileWriter("example.txt");
+
+            writer.write("Hello, Java!");
+            writer.write("\nFile handling is easy.");
+
+            writer.close();
+
+            System.out.println("Data written successfully.");
+        } catch (IOException e) {
+            System.out.println("An error occurred.");
+        }
+    }
+}

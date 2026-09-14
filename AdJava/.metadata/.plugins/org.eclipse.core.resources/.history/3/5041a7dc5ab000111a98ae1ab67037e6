@@ -1,0 +1,77 @@
+package myjdbc;
+import java.sql.*;
+import java.util.Scanner;
+public class MyCrud {
+	static Scanner sc=new Scanner(System.in);
+	Connection con;
+	MyCrud(String conString,	String dbid,	String psw) throws SQLException{
+		con=DriverManager.getConnection(conString,dbid,psw);
+	}
+	
+	
+	void addData() throws SQLException {
+		PreparedStatement pst=con.prepareStatement("INSERT INTO students "
+				+ "(id, name, course, marks) VALUES "
+				+ "(?, ?, ?, ?)");
+		pst.setInt(1, sc.nextInt());
+		pst.setString(2,sc.next());
+		pst.setString(3,sc.next());
+		pst.setInt(4, sc.nextInt());
+		pst.executeUpdate();
+	}
+	
+	void displayAll() throws SQLException {
+		PreparedStatement pst=con.prepareStatement("select * from students");
+		ResultSet rs=pst.executeQuery();
+		while(rs.next()) {
+			System.out.println(rs.getInt(1)+rs.getString(2)+rs.getString(3)+rs.getInt(4));
+		}
+	}
+	void searchById() throws SQLException {
+		PreparedStatement pst=con.prepareStatement("select * from students where id= ?");
+		pst.setInt(1,sc.nextInt());
+		ResultSet rs=pst.executeQuery();
+		while(rs.next()) {
+			System.out.println(rs.getInt(1)+rs.getString(2)+rs.getString(3)+rs.getInt(4));
+		}
+	}
+	void searchByName() throws SQLException {
+		PreparedStatement pst=con.prepareStatement("select * from students where name = ?");
+		pst.setString(1,sc.next());
+		ResultSet rs=pst.executeQuery();
+		while(rs.next()) {
+			System.out.println(rs.getInt(1)+rs.getString(2)+rs.getString(3)+rs.getInt(4));
+		}
+	}
+	void delete() throws SQLException{
+		PreparedStatement pst=con.prepareStatement("delete from students where id=?");
+		pst.setInt(1,sc.nextInt());
+		pst.executeUpdate();
+		System.out.println("deleted Successfully");
+	}
+	void update() throws SQLException{
+		PreparedStatement pst=con.prepareStatement("update students set name= ?,"
+				+ "course= ?,marks=? where id=?");
+		pst.setInt(4,sc.nextInt());
+		pst.setString(1,sc.next());
+		pst.setString(2,sc.next());
+		pst.setInt(3, sc.nextInt());
+		pst.executeUpdate();
+		
+	}
+	
+	public static void main(String[] args) throws SQLException {
+		String conString="jdbc:mysql://127.0.0.1:3306/studentdb";
+		String dbid="root";
+		String psw="root";
+//		Connection con = DriverManager.getConnection(
+//				"jdbc:mysql://127.0.0.1:3306/studentdb",
+//				"root",
+//				"root"
+//		);
+		MyCrud mc=new MyCurd();
+		
+		
+	
+	}
+}

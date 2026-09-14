@@ -1,0 +1,45 @@
+package assignment7.q6;
+
+public class Account {
+
+    long accNo;
+    String name;
+    double balance;
+
+    Account(long accNo, String name, double balance) {
+        this.accNo = accNo;
+        this.name = name;
+        this.balance = balance;
+    }
+
+    public void withdraw(double amount) {
+        try {
+            // Check whether withdrawal amount is positive
+            if (amount <= 0) {
+                throw new ArithmeticException("Withdrawal amount must be positive");
+            }
+
+            // Check whether sufficient balance is available
+            if (amount > balance) {
+                throw new ArithmeticException("Insufficient Balance");
+            }
+
+            // Withdraw amount
+            balance -= amount;
+            System.out.println(amount + " Withdrawn Successfully...");
+
+        } catch (ArithmeticException e) {
+            System.out.println("Exception: " + e.getMessage());
+
+        } finally {
+            System.out.println("Balance : " + balance);
+        }
+    }
+
+    public static void main(String[] args) {
+
+        Account a = new Account(123456789, "Keerthan", 50000);
+
+        a.withdraw(53000);
+    }
+}

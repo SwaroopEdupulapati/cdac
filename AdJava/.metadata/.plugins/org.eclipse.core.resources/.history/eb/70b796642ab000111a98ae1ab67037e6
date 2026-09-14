@@ -1,0 +1,11 @@
+package myjdbc;
+import java.sql.*;
+public class MyCrud {
+	public static void main(String[] args) throws SQLException {
+		Connection con=DriverManager.getConnection(
+				"jdbc:mysql://127.0.0.1:3306/?user=root",
+				"root",
+				"root"
+				);
+	}
+}

@@ -1,0 +1,44 @@
+package myjdbc;
+import java.sql.*;
+public class MyCrud {
+	
+	Connection con;
+	MyCrud(String conString) throws SQLException{
+		this.con=DriverManager.getConnection(conString);
+	}
+	
+	
+	void addData() {
+		PreparedStatement pst=con.prepareStatement("insert into student ('id','name','price') values(?,?,?)");
+	}
+	public static void main(String[] args) throws SQLException {
+		Connection con = DriverManager.getConnection(
+				"jdbc:mysql://127.0.0.1:3306/studentdb",
+				"root",
+				"root"
+		);
+		Statement selectStmt=con.createStatement();
+		
+		ResultSet res=selectStmt.executeQuery("select * from students");
+		while(res.next()) {
+			System.out.print(res.getInt(1));
+			System.out.print(res.getString(2));
+			System.out.print(res.getString(3));
+			System.out.print(res.getInt(4));
+			System.out.println();
+
+		}
+		
+		Statement s=con.createStatement();
+		s.executeUpdate("INSERT INTO students (id, name, course, marks) VALUES (20, 'pardha', 'CSE', 40)");
+		ResultSet re=selectStmt.executeQuery("select * from students");
+		while(re.next()) {
+			System.out.print(re.getInt(1));
+			System.out.print(re.getString(2));
+			System.out.print(re.getString(3));
+			System.out.print(re.getInt(4));
+			System.out.println();
+
+		}
+	}
+}
